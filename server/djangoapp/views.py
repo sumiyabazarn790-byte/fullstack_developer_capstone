@@ -69,6 +69,25 @@ def get_dealerships(request, state="All"):
     return JsonResponse({"status": 200, "dealers": dealerships})
 
 
+def fetch_dealers_by_state(request, state):
+    dealerships = get_request(f"/fetchDealers/{state}")
+    response = [
+        {
+            "id": dealer["id"],
+            "city": dealer["city"],
+            "state": dealer["state"],
+            "address": dealer["address"],
+            "zip": dealer["zip"],
+            "lat": dealer["lat"],
+            "long": dealer["long"],
+            "short_name": dealer["short_name"],
+            "full_name": dealer["full_name"],
+        }
+        for dealer in dealerships
+    ]
+    return JsonResponse(response, safe=False)
+
+
 def get_dealer_details(request, dealer_id):
     dealer = get_request(f"/fetchDealer/{dealer_id}")
     return JsonResponse({"status": 200, "dealer": dealer})

@@ -1,4 +1,8 @@
-# Best Cars Dealership Review App
+# fullstack_developer_capstone
+
+Repository name: `fullstack_developer_capstone`
+
+Project name: `fullstack_developer_capstone`
 
 Full Stack Developer Capstone project built with Django, React, SQLite, and a Node/Mongo dealership API fallback.
 
