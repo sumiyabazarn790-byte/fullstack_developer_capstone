@@ -191,6 +191,12 @@ async function main() {
   const deployBase = "https://theiadockernext-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai";
 
   try {
+    await goto(cdp, "http://127.0.0.1:8000/dealers/");
+    await capture(cdp, "get_dealers.png", "http://127.0.0.1:8000/dealers/");
+
+    await goto(cdp, "http://127.0.0.1:8000/dealers/?state=Kansas");
+    await capture(cdp, "dealersbystate.png", "http://127.0.0.1:8000/dealers/?state=Kansas");
+
     await loginAdmin(cdp);
     await capture(cdp, "admin_login.png", "http://127.0.0.1:8000/admin/");
 
@@ -207,6 +213,11 @@ async function main() {
     await setAppLogin(cdp);
     await goto(cdp, "http://127.0.0.1:8000/dealer/15/");
     await capture(cdp, "dealer_id_reviews.png", "http://127.0.0.1:8000/dealer/15/");
+
+    await goto(cdp, "http://127.0.0.1:8000/dealers/");
+    await setAppLogin(cdp);
+    await goto(cdp, "http://127.0.0.1:8000/dealers/");
+    await capture(cdp, "dealers_loggedin.png", "http://127.0.0.1:8000/dealers/");
 
     await evalJs(cdp, `
       fetch('/djangoapp/add_review', {
@@ -238,6 +249,7 @@ async function main() {
     await goto(cdp, "http://127.0.0.1:8000/dealer/15/");
     await setAppLogin(cdp);
     await goto(cdp, "http://127.0.0.1:8000/dealer/15/");
+    await capture(cdp, "deployed_dealer_detail.png", `${deployBase}/dealer/15/`);
     await capture(cdp, "deployed_add_review.png", `${deployBase}/dealer/15/`);
   } finally {
     cdp.close();
