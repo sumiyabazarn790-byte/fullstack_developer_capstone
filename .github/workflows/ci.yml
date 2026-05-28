@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-check:
+  lint-python-files:
+    name: Lint Python Files
     runs-on: ubuntu-latest
 
     steps:
@@ -36,6 +37,14 @@ jobs:
         working-directory: server
         run: python manage.py makemigrations --check --dry-run
 
+  lint-javascript-files:
+    name: Lint JavaScript Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -46,6 +55,10 @@ jobs:
       - name: Install React dependencies
         working-directory: server/frontend
         run: npm ci
+
+      - name: Lint JavaScript source
+        working-directory: server/frontend
+        run: npx eslint src --max-warnings=999
 
       - name: Build React frontend
         working-directory: server/frontend
