@@ -69,6 +69,12 @@ def get_dealerships(request, state="All"):
     return JsonResponse({"status": 200, "dealers": dealerships})
 
 
+def fetch_dealers(request):
+    dealerships = get_request("/fetchDealers")
+    response = [_dealer_submission_fields(dealer) for dealer in dealerships]
+    return JsonResponse(response, safe=False)
+
+
 def fetch_dealers_by_state(request, state):
     dealerships = get_request(f"/fetchDealers/{state}")
     response = [_dealer_submission_fields(dealer) for dealer in dealerships]
