@@ -1,0 +1,12 @@
+<html>
+<head>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    sessionStorage.setItem("username", "root");
+    sessionStorage.setItem("firstname", "Root");
+    sessionStorage.setItem("lastname", "User");
+    window.location.href = params.get("target") || "/";
+  </script>
+</head>
+<body>Preparing session...</body>
+</html>

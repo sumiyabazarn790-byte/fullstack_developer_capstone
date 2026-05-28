@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Local browser/test artifacts
+.chrome-*/
+.chrome*/
+server/.server_pid
+server/frontend/node_modules/

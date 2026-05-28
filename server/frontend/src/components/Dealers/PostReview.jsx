@@ -6,11 +6,12 @@ import Header from '../Header/Header';
 
 
 const PostReview = () => {
+  const query = new URLSearchParams(window.location.search);
   const [dealer, setDealer] = useState({});
-  const [review, setReview] = useState("");
-  const [model, setModel] = useState();
-  const [year, setYear] = useState("");
-  const [date, setDate] = useState("");
+  const [review, setReview] = useState(query.get("review") || "");
+  const [model, setModel] = useState(query.get("model") || "");
+  const [year, setYear] = useState(query.get("year") || "");
+  const [date, setDate] = useState(query.get("date") || "");
   const [carmodels, setCarmodels] = useState([]);
 
   let curr_url = window.location.href;
@@ -95,13 +96,13 @@ const PostReview = () => {
       <Header/>
       <div  style={{margin:"5%"}}>
       <h1 style={{color:"darkblue"}}>{dealer.full_name}</h1>
-      <textarea id='review' cols='50' rows='7' onChange={(e) => setReview(e.target.value)}></textarea>
+      <textarea id='review' cols='50' rows='7' value={review} onChange={(e) => setReview(e.target.value)}></textarea>
       <div className='input_field'>
-      Purchase Date <input type="date" onChange={(e) => setDate(e.target.value)}/>
+      Purchase Date <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
       </div>
       <div className='input_field'>
       Car Make 
-      <select name="cars" id="cars" onChange={(e) => setModel(e.target.value)}>
+      <select name="cars" id="cars" value={model} onChange={(e) => setModel(e.target.value)}>
       <option value="" selected disabled hidden>Choose Car Make and Model</option>
       {carmodels.map(carmodel => (
           <option value={carmodel.CarMake+" "+carmodel.CarModel}>{carmodel.CarMake} {carmodel.CarModel}</option>
@@ -110,7 +111,7 @@ const PostReview = () => {
       </div >
 
       <div className='input_field'>
-      Car Year <input type="int" onChange={(e) => setYear(e.target.value)} max={2023} min={2015}/>
+      Car Year <input type="int" value={year} onChange={(e) => setYear(e.target.value)} max={2023} min={2015}/>
       </div>
 
       <div>

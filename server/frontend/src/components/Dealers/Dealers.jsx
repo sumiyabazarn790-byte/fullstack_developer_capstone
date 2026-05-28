@@ -27,6 +27,12 @@ const Dealers = () => {
   }
 
   const get_dealers = async ()=>{
+    const queryState = new URLSearchParams(window.location.search).get("state");
+    if (queryState) {
+      await filterDealers(queryState);
+      setStates([queryState]);
+      return;
+    }
     const res = await fetch(dealer_url, {
       method: "GET"
     });
