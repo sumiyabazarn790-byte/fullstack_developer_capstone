@@ -241,6 +241,10 @@ async function main() {
     await goto(cdp, "http://127.0.0.1:8000/dealer/15/");
     await capture(cdp, "added_review.png", "http://127.0.0.1:8000/dealer/15/");
 
+    await evalJs(cdp, `sessionStorage.clear();`);
+    await goto(cdp, "http://127.0.0.1:8000/");
+    await capture(cdp, "deployed_landingpage.png", `${deployBase}/`);
+
     await goto(cdp, "http://127.0.0.1:8000/");
     await setAppLogin(cdp);
     await goto(cdp, "http://127.0.0.1:8000/");
