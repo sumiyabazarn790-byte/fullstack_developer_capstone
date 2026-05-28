@@ -1,4 +1,29 @@
 GitHub Actions workflow run:
-Not configured in this local workspace.
+Repository: sumiyabazarn790-byte/fullstack_developer_capstone
+Workflow: Django React CI
+Run ID: 26546809196
+Run number: 1
+Branch: main
+Commit: 5bf082e9de98f53040c1fa3150864450228e89b7
+Status: completed
+Conclusion: success
+Job: build-and-check
+Runner: ubuntu-latest
+Started at: 2026-05-28T00:23:47Z
+Completed at: 2026-05-28T00:24:37Z
+Workflow URL: https://github.com/sumiyabazarn790-byte/fullstack_developer_capstone/actions/runs/26546809196
 
-After pushing this repository to GitHub, add a Django/React workflow and paste the successful run output here.
+Executed workflow steps:
+1. Set up job - success
+2. Checkout repository - success
+3. Set up Python - success
+4. Install Django dependencies - success
+5. Run Django system checks - success
+6. Check Django migrations - success
+7. Set up Node - success
+8. Install React dependencies - success
+9. Build React frontend - success
+10. Post Set up Node - success
+11. Post Set up Python - success
+12. Post Checkout repository - success
+13. Complete job - success
