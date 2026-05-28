@@ -1,4 +1,1 @@
-Deployment URL:
-http://127.0.0.1:8000/
-
-Replace this local URL with the IBM Cloud Code Engine URL after deployment.
+https://theiadockernext-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/

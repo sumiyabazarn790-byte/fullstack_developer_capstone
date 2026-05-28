@@ -1,2 +1,2 @@
-curl.exe -s http://127.0.0.1:8000/djangoapp/dealer/15
-{"status": 200, "dealer": [{"id": 15, "city": "San Antonio", "state": "Texas", "st": "TX", "address": "5057 Pankratz Hill", "zip": "78225", "lat": 29.3875, "long": -98.5245, "short_name": "Tempsoft", "full_name": "Tempsoft Car Dealership"}]}
+curl.exe -s http://127.0.0.1:8000/djangoapp/fetchDealer/15
+[{"id": 15, "city": "San Antonio", "state": "Texas", "address": "5057 Pankratz Hill", "zip": "78225", "lat": 29.3875, "long": -98.5245, "short_name": "Tempsoft", "full_name": "Tempsoft Car Dealership"}]

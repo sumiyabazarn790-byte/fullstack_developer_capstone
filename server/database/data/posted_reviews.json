@@ -1,0 +1,16 @@
+{
+  "reviews": [
+    {
+      "name": "Root User",
+      "dealership": 15,
+      "review": "Posted capstone review: the service was fantastic and helpful.",
+      "purchase": true,
+      "purchase_date": "2026-05-28",
+      "car_make": "Toyota",
+      "car_model": "Camry",
+      "car_year": 2023,
+      "sentiment": "positive",
+      "id": 1000
+    }
+  ]
+}
